@@ -11,6 +11,11 @@ class Product < ApplicationRecord
   #   Supplier.find_by(id: supplier_id)
   # end
 
+  has_many :images
+  # def images
+  #   Image.where(product_id: id)
+  # end
+
   scope :title_search, ->(search_terms) do
           if search_terms
             where("name ILIKE ?", "%#{search_terms}%")
