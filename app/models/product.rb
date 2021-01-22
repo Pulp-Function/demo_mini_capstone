@@ -5,6 +5,12 @@ class Product < ApplicationRecord
   validates :description, presence: true
   validates :description, length: { in: 2..1000 }
 
+  belongs_to :supplier
+  # def supplier
+  #   # Look in the supplier's table for a supplier with an id that matches supplier_id
+  #   Supplier.find_by(id: supplier_id)
+  # end
+
   scope :title_search, ->(search_terms) do
           if search_terms
             where("name ILIKE ?", "%#{search_terms}%")
@@ -37,10 +43,5 @@ class Product < ApplicationRecord
 
   def total
     price + tax
-  end
-
-  def supplier
-    # Look in the supplier's table for a supplier with an id that matches supplier_id
-    Supplier.find_by(id: supplier_id)
   end
 end
