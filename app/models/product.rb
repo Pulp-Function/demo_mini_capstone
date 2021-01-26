@@ -16,6 +16,8 @@ class Product < ApplicationRecord
   #   Image.where(product_id: id)
   # end
 
+  has_many :orders
+
   scope :title_search, ->(search_terms) do
           if search_terms
             where("name ILIKE ?", "%#{search_terms}%")
