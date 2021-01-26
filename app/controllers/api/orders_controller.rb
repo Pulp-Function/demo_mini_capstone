@@ -1,4 +1,9 @@
 class Api::OrdersController < ApplicationController
+  def index
+    @orders = current_user.orders
+    render "index.json.jb"
+  end
+
   def create
     # Open the products table
     # Find the product with an id that matches the product_id given by the user
