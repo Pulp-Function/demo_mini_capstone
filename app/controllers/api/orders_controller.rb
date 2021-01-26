@@ -25,4 +25,9 @@ class Api::OrdersController < ApplicationController
     @order.save
     render "show.json.jb"
   end
+
+  def show
+    @order = current_user.orders.find_by(id: params[:id])
+    render "show.json.jb"
+  end
 end
