@@ -18,6 +18,9 @@ class Product < ApplicationRecord
 
   has_many :orders
 
+  has_many :category_products
+  has_many :products, through: :category_products
+
   scope :title_search, ->(search_terms) do
           if search_terms
             where("name ILIKE ?", "%#{search_terms}%")
