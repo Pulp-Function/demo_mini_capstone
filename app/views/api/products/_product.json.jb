@@ -8,6 +8,7 @@
   description: product.description,
   supplier: product.supplier,
   images: product.images,
+  primary_image_url: product.primary_image_url,
   formatted: {
     price: number_to_currency(product.price),
   },

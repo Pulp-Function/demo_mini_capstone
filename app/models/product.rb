@@ -55,4 +55,12 @@ class Product < ApplicationRecord
   def total
     price + tax
   end
+
+  def primary_image_url
+    if images.length > 0
+      images[0].url
+    else
+      "http://www.staticwhich.co.uk/static/images/products/no-image/no-image-available.png"
+    end
+  end
 end
